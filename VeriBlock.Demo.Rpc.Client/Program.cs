@@ -4,9 +4,16 @@ namespace VeriBlock.Demo.Rpc.Client
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Start Demo");
+            Console.WriteLine();
+
+            Examples ex1 = new Examples();
+            ex1.Run();
+
+            Console.WriteLine("End Demo");
+
         }
     }
 }
