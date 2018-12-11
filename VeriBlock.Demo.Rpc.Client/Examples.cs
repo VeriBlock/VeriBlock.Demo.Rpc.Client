@@ -15,18 +15,16 @@ namespace VeriBlock.Demo.Rpc.Client
 
             using (NodeCoreAdminClient adminClient = new NodeCoreAdminClient(strAddress))
             {
-                //For simplicy, force sync:
-                adminClient.Connect();
+                //For simplicity, force sync:
 
-                SendTransaction(adminClient);
+                GetInfo(adminClient);
                 ValidateAddress(adminClient);
                 GetBalance(adminClient);
                 GetTransactionById(adminClient);
-                GetInfo(adminClient);
                 GetNewAddress(adminClient);
                 GetBlockByIndex(adminClient);
                 GetBlockByHash(adminClient);
-
+                SendTransaction(adminClient);
             }
 
         }
