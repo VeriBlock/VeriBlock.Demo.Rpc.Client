@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeriBlock.Demo.Rpc.Client", "VeriBlock.Demo.Rpc.Client\VeriBlock.Demo.Rpc.Client.csproj", "{00C3EF8A-9FB7-4927-84ED-2532431F1500}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VeriBlock.Demo.Rpc.Client", "VeriBlock.Demo.Rpc.Client\VeriBlock.Demo.Rpc.Client.csproj", "{00C3EF8A-9FB7-4927-84ED-2532431F1500}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeriBlock.Demo.Framework.Tests", "VeriBlock.Demo.Framework.Tests\VeriBlock.Demo.Framework.Tests.csproj", "{1AA3EFDB-6CD8-4791-91BE-CBA523A456FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{00C3EF8A-9FB7-4927-84ED-2532431F1500}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00C3EF8A-9FB7-4927-84ED-2532431F1500}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00C3EF8A-9FB7-4927-84ED-2532431F1500}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AA3EFDB-6CD8-4791-91BE-CBA523A456FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AA3EFDB-6CD8-4791-91BE-CBA523A456FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AA3EFDB-6CD8-4791-91BE-CBA523A456FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AA3EFDB-6CD8-4791-91BE-CBA523A456FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
