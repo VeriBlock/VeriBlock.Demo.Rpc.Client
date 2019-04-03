@@ -18,8 +18,7 @@ namespace VeriBlock.Demo.Rpc.Client
 
         public void Run()
         {
-            //String strAddress = "127.0.0.1:10500";
-            String strAddress = "95.216.244.42:10500";
+            String strAddress = "127.0.0.1:10500";
 
             using (NodeCoreAdminClient adminClient = new NodeCoreAdminClient(strAddress))
             {
