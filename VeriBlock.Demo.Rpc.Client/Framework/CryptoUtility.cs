@@ -1,4 +1,11 @@
-﻿using System.Security.Cryptography;
+﻿// VeriBlock NodeCore
+// Copyright 2017-2019 VeriBlock, Inc.
+// All rights reserved.
+// https://www.veriblock.org
+// Distributed under the MIT software license, see the accompanying
+// file LICENSE or http://www.opensource.org/licenses/mit-license.php.
+
+using System.Security.Cryptography;
 using System.Text;
 
 namespace VeriBlock.Demo.Rpc.Client.Framework

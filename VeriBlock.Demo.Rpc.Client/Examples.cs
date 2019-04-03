@@ -1,4 +1,11 @@
-﻿using System;
+﻿// VeriBlock NodeCore
+// Copyright 2017-2019 VeriBlock, Inc.
+// All rights reserved.
+// https://www.veriblock.org
+// Distributed under the MIT software license, see the accompanying
+// file LICENSE or http://www.opensource.org/licenses/mit-license.php.
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Core;
@@ -11,7 +18,7 @@ namespace VeriBlock.Demo.Rpc.Client
 
         public void Run()
         {
-            String strAddress = "127.0.0.1:10501";
+            String strAddress = "127.0.0.1:10500";
 
             using (NodeCoreAdminClient adminClient = new NodeCoreAdminClient(strAddress))
             {
@@ -226,11 +233,6 @@ namespace VeriBlock.Demo.Rpc.Client
 
             Console.WriteLine("--------------------");
             Console.WriteLine();
-        }
-
-        public void TODO_EstimateFee()
-        {
-            //TODO!
         }
 
     }
