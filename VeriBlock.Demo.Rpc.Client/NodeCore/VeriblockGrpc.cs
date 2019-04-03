@@ -17,82 +17,6 @@ using System.Threading.Tasks;
 using grpc = global::Grpc.Core;
 
 namespace Core {
-  public static partial class Peer
-  {
-    static readonly string __ServiceName = "core.Peer";
-
-    static readonly grpc::Marshaller<global::Core.Event> __Marshaller_Event = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Core.Event.Parser.ParseFrom);
-
-    static readonly grpc::Method<global::Core.Event, global::Core.Event> __Method_EventStream = new grpc::Method<global::Core.Event, global::Core.Event>(
-        grpc::MethodType.DuplexStreaming,
-        __ServiceName,
-        "EventStream",
-        __Marshaller_Event,
-        __Marshaller_Event);
-
-    /// <summary>Service descriptor</summary>
-    public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
-    {
-      get { return global::Core.VeriblockReflection.Descriptor.Services[0]; }
-    }
-
-    /// <summary>Base class for server-side implementations of Peer</summary>
-    public abstract partial class PeerBase
-    {
-      public virtual global::System.Threading.Tasks.Task EventStream(grpc::IAsyncStreamReader<global::Core.Event> requestStream, grpc::IServerStreamWriter<global::Core.Event> responseStream, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-    }
-
-    /// <summary>Client for Peer</summary>
-    public partial class PeerClient : grpc::ClientBase<PeerClient>
-    {
-      /// <summary>Creates a new client for Peer</summary>
-      /// <param name="channel">The channel to use to make remote calls.</param>
-      public PeerClient(grpc::Channel channel) : base(channel)
-      {
-      }
-      /// <summary>Creates a new client for Peer that uses a custom <c>CallInvoker</c>.</summary>
-      /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
-      public PeerClient(grpc::CallInvoker callInvoker) : base(callInvoker)
-      {
-      }
-      /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
-      protected PeerClient() : base()
-      {
-      }
-      /// <summary>Protected constructor to allow creation of configured clients.</summary>
-      /// <param name="configuration">The client configuration.</param>
-      protected PeerClient(ClientBaseConfiguration configuration) : base(configuration)
-      {
-      }
-
-      public virtual grpc::AsyncDuplexStreamingCall<global::Core.Event, global::Core.Event> EventStream(grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return EventStream(new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncDuplexStreamingCall<global::Core.Event, global::Core.Event> EventStream(grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncDuplexStreamingCall(__Method_EventStream, null, options);
-      }
-      /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
-      protected override PeerClient NewInstance(ClientBaseConfiguration configuration)
-      {
-        return new PeerClient(configuration);
-      }
-    }
-
-    /// <summary>Creates service definition that can be registered with a server</summary>
-    /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
-    public static grpc::ServerServiceDefinition BindService(PeerBase serviceImpl)
-    {
-      return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_EventStream, serviceImpl.EventStream).Build();
-    }
-
-  }
   public static partial class Admin
   {
     static readonly string __ServiceName = "core.Admin";
@@ -203,6 +127,10 @@ namespace Core {
     static readonly grpc::Marshaller<global::Core.DecryptWalletRequest> __Marshaller_DecryptWalletRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Core.DecryptWalletRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Core.UnlockWalletRequest> __Marshaller_UnlockWalletRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Core.UnlockWalletRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Core.LockWalletRequest> __Marshaller_LockWalletRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Core.LockWalletRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Core.DrainAddressRequest> __Marshaller_DrainAddressRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Core.DrainAddressRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Core.DrainAddressReply> __Marshaller_DrainAddressReply = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Core.DrainAddressReply.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Core.GetBalanceUnlockScheduleRequest> __Marshaller_GetBalanceUnlockScheduleRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Core.GetBalanceUnlockScheduleRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Core.GetBalanceUnlockScheduleReply> __Marshaller_GetBalanceUnlockScheduleReply = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Core.GetBalanceUnlockScheduleReply.Parser.ParseFrom);
 
     static readonly grpc::Method<global::Core.GetPopRequest, global::Core.GetPopReply> __Method_GetPop = new grpc::Method<global::Core.GetPopRequest, global::Core.GetPopReply>(
         grpc::MethodType.Unary,
@@ -638,10 +566,24 @@ namespace Core {
         __Marshaller_LockWalletRequest,
         __Marshaller_ProtocolReply);
 
+    static readonly grpc::Method<global::Core.DrainAddressRequest, global::Core.DrainAddressReply> __Method_DrainAddress = new grpc::Method<global::Core.DrainAddressRequest, global::Core.DrainAddressReply>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "DrainAddress",
+        __Marshaller_DrainAddressRequest,
+        __Marshaller_DrainAddressReply);
+
+    static readonly grpc::Method<global::Core.GetBalanceUnlockScheduleRequest, global::Core.GetBalanceUnlockScheduleReply> __Method_GetBalanceUnlockSchedule = new grpc::Method<global::Core.GetBalanceUnlockScheduleRequest, global::Core.GetBalanceUnlockScheduleReply>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetBalanceUnlockSchedule",
+        __Marshaller_GetBalanceUnlockScheduleRequest,
+        __Marshaller_GetBalanceUnlockScheduleReply);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
-      get { return global::Core.VeriblockReflection.Descriptor.Services[1]; }
+      get { return global::Core.VeriblockReflection.Descriptor.Services[0]; }
     }
 
     /// <summary>Base class for server-side implementations of Admin</summary>
@@ -953,6 +895,16 @@ namespace Core {
       }
 
       public virtual global::System.Threading.Tasks.Task<global::Core.ProtocolReply> LockWallet(global::Core.LockWalletRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Core.DrainAddressReply> DrainAddress(global::Core.DrainAddressRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Core.GetBalanceUnlockScheduleReply> GetBalanceUnlockSchedule(global::Core.GetBalanceUnlockScheduleRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -1974,6 +1926,38 @@ namespace Core {
       {
         return CallInvoker.AsyncUnaryCall(__Method_LockWallet, null, options, request);
       }
+      public virtual global::Core.DrainAddressReply DrainAddress(global::Core.DrainAddressRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return DrainAddress(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Core.DrainAddressReply DrainAddress(global::Core.DrainAddressRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_DrainAddress, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Core.DrainAddressReply> DrainAddressAsync(global::Core.DrainAddressRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return DrainAddressAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Core.DrainAddressReply> DrainAddressAsync(global::Core.DrainAddressRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_DrainAddress, null, options, request);
+      }
+      public virtual global::Core.GetBalanceUnlockScheduleReply GetBalanceUnlockSchedule(global::Core.GetBalanceUnlockScheduleRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return GetBalanceUnlockSchedule(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Core.GetBalanceUnlockScheduleReply GetBalanceUnlockSchedule(global::Core.GetBalanceUnlockScheduleRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetBalanceUnlockSchedule, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Core.GetBalanceUnlockScheduleReply> GetBalanceUnlockScheduleAsync(global::Core.GetBalanceUnlockScheduleRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return GetBalanceUnlockScheduleAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Core.GetBalanceUnlockScheduleReply> GetBalanceUnlockScheduleAsync(global::Core.GetBalanceUnlockScheduleRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetBalanceUnlockSchedule, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override AdminClient NewInstance(ClientBaseConfiguration configuration)
       {
@@ -2047,7 +2031,9 @@ namespace Core {
           .AddMethod(__Method_EncryptWallet, serviceImpl.EncryptWallet)
           .AddMethod(__Method_DecryptWallet, serviceImpl.DecryptWallet)
           .AddMethod(__Method_UnlockWallet, serviceImpl.UnlockWallet)
-          .AddMethod(__Method_LockWallet, serviceImpl.LockWallet).Build();
+          .AddMethod(__Method_LockWallet, serviceImpl.LockWallet)
+          .AddMethod(__Method_DrainAddress, serviceImpl.DrainAddress)
+          .AddMethod(__Method_GetBalanceUnlockSchedule, serviceImpl.GetBalanceUnlockSchedule).Build();
     }
 
   }

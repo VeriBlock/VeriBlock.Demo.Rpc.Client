@@ -18,7 +18,8 @@ namespace VeriBlock.Demo.Rpc.Client
 
         public void Run()
         {
-            String strAddress = "127.0.0.1:10500";
+            //String strAddress = "127.0.0.1:10500";
+            String strAddress = "95.216.244.42:10500";
 
             using (NodeCoreAdminClient adminClient = new NodeCoreAdminClient(strAddress))
             {
@@ -77,7 +78,11 @@ namespace VeriBlock.Demo.Rpc.Client
             if (reply.Success)
             {
                 //Note - could create multiple Tx, pick just the first one for demo:
-                Console.WriteLine("Created Transaction: {0}", reply.TxIds[0].ToHexString());
+                Console.WriteLine("Created transaction: {0}", reply.TxIds[0].ToHexString());
+            }
+            else
+            {
+                Console.WriteLine("Error sending transaction: {0}", reply.Results[0].Details);
             }
 
             Console.WriteLine("--------------------");
@@ -117,7 +122,7 @@ namespace VeriBlock.Demo.Rpc.Client
             Console.WriteLine("GetBlockByHash");
             Console.WriteLine("NC_CLI command: getblockfromhash <blockHash>");
 
-            String blockHash = "000000F09852F90A2263595FAD6CF8D0187B16DA0EA7F7F4";
+            String blockHash = "0000000000002A866690AF6E6B7B784151DDB0565BE16EE0";
 
 
             BlockFilter filter = new BlockFilter();
@@ -146,7 +151,7 @@ namespace VeriBlock.Demo.Rpc.Client
             Console.WriteLine("GetBalance");
             Console.WriteLine("NC_CLI command: getbalance [address]");
 
-            String address = "V4m6JbAs8VaEa3wwemJPgsPRY8ETdk";
+            String address = "V9pNg1wCSadKrBJiGKchpMGAtD7cT3";
 
             GetBalanceRequest request = new GetBalanceRequest();
             request.Addresses.Add(Utils.ConvertAddressToByteString(address));
@@ -154,7 +159,7 @@ namespace VeriBlock.Demo.Rpc.Client
 
             if (reply.Success)
             {
-                Console.WriteLine("Confirmed={0}", Utils.ConvertAtomicToVbkUnits(reply.Confirmed[0].Amount));
+                Console.WriteLine("Confirmed={0}", Utils.ConvertAtomicToVbkUnits(reply.Confirmed[0].UnlockedAmount));
                 Console.WriteLine("Pending={0}", Utils.ConvertAtomicToVbkUnits(reply.Unconfirmed[0].Amount));
             }
 
