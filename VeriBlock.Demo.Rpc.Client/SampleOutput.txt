@@ -1,0 +1,49 @@
+﻿Start Demo
+
+SendTransaction
+NC_CLI command: send <amount> <destinationAddress> [sourceAddress]
+Created Transaction: 60C48C1EFE754B1B1F3EDB00A19001821D4DEE60263EEAD82604AF6F38C43E9C
+--------------------
+
+GetBalance
+NC_CLI command: validateaddress <address>
+IsRemote: False
+PublicKey: 3056301006072A8648CE3D020106052B8104000A03420004ACA81F1BC10A84F5F4893A987D8C1A254DBD754C5ADD156EA0D525784553B4215DB86743AA5DB7D5F4E652289753EA3C941316A2B9175B058C094A0683134DDA
+--------------------
+
+GetBalance
+NC_CLI command: getbalance [address]
+Confirmed=26398.538935
+Pending=-10.50064
+--------------------
+
+GetTransactionById
+NC_CLI command: gettransaction <txId> [searchLength]
+BlockIndex=631, sourceAmount=43.750335
+--------------------
+
+GetBalance
+NC_CLI command: getinfo
+NC_CLI command: getstateinfo
+NetworkHeight=0
+LocalBlockchainHeight=631
+ConnectedPeerCount=0
+LastBlock.Hash=0000003DCB5459F1AD47DF5B66ACAD15B8D7F002525D4AFA
+--------------------
+
+GetNewAddress
+NC_CLI command: getnewaddress
+New Address: V9au71YTEHKdnGXH8J1eBLXQG8kJM4
+--------------------
+
+GetBlockByIndex
+NC_CLI command: getblockfromindex <blockIndex>
+BlockHash=000000F09852F90A2263595FAD6CF8D0187B16DA0EA7F7F4
+--------------------
+
+GetBlockByHash
+NC_CLI command: getblockfromhash <blockHash>
+BlockIndex=100
+--------------------
+
+End Demo
